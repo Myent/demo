@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<script src="../dist/JsBarcode.all.js"></script>
+	<script>
+		Number.prototype.zeroPadding = function(){
+			var ret = "" + this.valueOf();
+			return ret.length == 1 ? "0" + ret : ret;
+		};
+	</script>
+</head>
+<body>
+	
+
+	<div>
+		<img id="barcode2"/>
+		<script>
+			JsBarcode("#barcode2", "9780199532179", {
+			  format:"CODE39",
+			  displayValue:true,
+			  fontSize:24,
+			  lineColor: "#0cc"
+			});
+		</script>
+	</div>
+
+	
+</body>
+</html>

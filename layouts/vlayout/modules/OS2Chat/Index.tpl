@@ -1,0 +1,1 @@
+<h2>{$MODULE} module <small>working now.</small></h2>

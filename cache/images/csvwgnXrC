@@ -1,0 +1,7 @@
+Subject,"Quote Name","Contact Name","Due Date",Status,"Organization Name","Sales Commission","Assigned To"
+"Medical Marijuana Purchase From Portal","Medical Marijuana Purchase From Portal","Steve Doe",2016-06-01,Approved,-,0.000,"Mike MasterG"
+"First Order","First Order","Jane Smith",2016-06-13,Approved,-,0.000,"Mike MasterG"
+"Second Order from Patient Portal","Second Order from Patient Portal","Jane Smith",-,Approved,-,0.000,"Iam ClientCare"
+"Call-in Quote Request Steve Smith","Call-in Quote Request Steve Smith","Steve Doe",2017-07-07,Approved,-,0.000,"Mike MasterG"
+"P & B - Farmer Joe","First Order","Steve Doe",2017-08-05,Approved,"P & B",0.000,"Mike MasterG"
+"Third Order from Patient Portal","Third Order from Patient Portal","Jane Smith",-,Approved,-,0.000,"Iam ClientCare"

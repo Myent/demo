@@ -1,0 +1,27 @@
+<?xml version='1.0'?>
+<module>
+<exporttime>2018-05-07 11:12:47</exporttime>
+<name>Calendar</name>
+<label>Calendar</label>
+<parent>Tool</parent>
+<version>3.3</version>
+<dependencies>
+<vtiger_version>6.0.0rc</vtiger_version>
+</dependencies>
+<modulebundle>true</modulebundle>
+<license>
+		<file>README.txt</file>
+</license>
+<modulelist>
+<dependent_module>
+<name>Calendar</name>
+<install_sequence>1</install_sequence>
+<filepath>Calendar.zip</filepath>
+</dependent_module>
+<dependent_module>
+<name>Events</name>
+<install_sequence>2</install_sequence>
+<filepath>Events.zip</filepath>
+</dependent_module>
+</modulelist>
+</module>

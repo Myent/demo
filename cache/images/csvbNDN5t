@@ -1,0 +1,11 @@
+"Invoice BankCustId","Invoice Invoice No","Invoice Invoice Date","Products Product Category","Products Product Number","Invoice Product Name","Products VendorPartNo","Products Unit Cost"
+15874,INV1,2016-06-01,"Ancillary Accessories",PRO2,"Hybrid 1",12358,1.00
+-,INV2,2016-06-10,"Ancillary Accessories",PRO2,"Hybrid 1",12358,1.00
+-,INV3,2016-06-12,"Ancillary Accessories",PRO2,"Hybrid 1",12358,1.00
+-,INV4,-,"Cannabis Inventory",PRO7,"Sativa Flower",-,-
+89799,INV9,2016-06-01,"Ancillary Accessories",PRO2,"Hybrid 1",12358,1.00
+-,INV10,2016-09-08,"Produced Inventory",PRO6,"Topical CBD",-,-
+-,INV11,2016-09-08,"Produced Inventory",PRO6,"Topical CBD",-,-
+-,INV12,2016-09-09,"Produced Inventory",PRO6,"Topical CBD",-,-
+-,INV13,2016-11-01,"Produced Inventory",PRO6,"Topical CBD",-,-
+-,INV21,2017-08-01,"Produced Inventory",PRO68,"CBD Coco Soak Batch Aug 1 2017",-,-

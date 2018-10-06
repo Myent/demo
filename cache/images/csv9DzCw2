@@ -1,0 +1,11 @@
+"Invoice BankCustId","Invoice Invoice No","Products Product Category","Products Product Number","Products Product Name","Invoice Invoice Date","Invoice Sub Total","Invoice Adjustment","Invoice Discount Amount","Invoice Total","Invoice Payment Method","Contacts Contact Id","Invoice Contact Name"
+-,INV1,"Produced Inventory",PRO2,"Hybrid 1",2016-06-01,$70.43,$0.00,$0.00,$80.99,-,CON16,"Steve Doe"
+-,INV2,"Produced Inventory",PRO2,"Hybrid 1",2016-06-10,$360.00,$0.00,$0.00,$414.00,-,C34,"Pat Black"
+-,INV3,"Produced Inventory",PRO2,"Hybrid 1",2016-06-12,$706.80,$0.00,$0.00,$812.82,-,CON12,"Jane Smith"
+-,INV4,"Cannabis Inventory",PRO7,"Sativa Flower",-,$0.00,$0.00,$0.00,$0.00,-,-,-
+-,INV9,"Produced Inventory",PRO2,"Hybrid 1",2016-06-01,$70.43,$0.00,$0.00,$80.99,-,CON16,"Steve Doe"
+-,INV10,"Produced Inventory",PRO6,"Topical CBD",2016-09-08,$9.92,$0.00,-,$12.87,-,-,"manasa B"
+-,INV11,"Produced Inventory",PRO6,"Topical CBD",2016-09-08,$19.84,$0.00,-,$25.72,-,-,"manasa B"
+-,INV12,"Produced Inventory",PRO6,"Topical CBD",2016-09-09,$9.92,$0.00,-,$12.87,-,-,"manasa B"
+-,INV13,"Produced Inventory",PRO6,"Topical CBD",2016-11-01,$9.92,$0.00,-,$12.87,-,-,"manasa B"
+-,INV21,"Produced Inventory",PRO68,"CBD Coco Soak Batch Aug 1 2017",2017-08-01,"$22,320.00",$0.00,-,"$28,951.72",-,-,-

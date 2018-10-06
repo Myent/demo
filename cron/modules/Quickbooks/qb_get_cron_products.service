@@ -1,0 +1,79 @@
+<?php  
+include_once 'quickbooks/config.php';
+include_once 'quickbooks/views/header.tpl.php';
+include_once 'config.inc.php';
+include_once 'modules/Emails/mail.php';
+include_once 'include/utils/utils.php';
+include_once 'includes/runtime/BaseModel.php';
+include_once 'includes/runtime/Globals.php';
+include_once 'includes/Loader.php';
+include_once 'includes/http/Request.php';
+include_once 'modules/Vtiger/models/Record.php';
+include_once 'modules/Users/models/Record.php';
+include_once 'includes/runtime/LanguageHandler.php'; 
+include_once 'modules/Users/Users.php';
+include_once 'include/Webservices/Create.php';
+include_once 'include/Webservices/Retrieve.php';
+
+	global $adb, $current_user;
+	$user = new Users();
+	$current_user = $user->retrieveCurrentUserInfoFromFile(Users::getActiveAdminId());
+	  
+	$qb_products = $qb_servies = 0;         
+	$ItemService = new QuickBooks_IPP_Service_Term();        
+	//$items = $ItemService->query($Context, $realm, "SELECT * FROM Item WHERE Metadata.LastUpdatedTime > '2013-01-01T14:50:22-08:00' ORDER BY Metadata.LastUpdatedTime ");
+	$items = $ItemService->query($Context, $realm, "SELECT * FROM Item ORDER BY Metadata.LastUpdatedTime");        
+	foreach ($items as $Item)
+	{
+		$qb_id = QuickBooks_IPP_IDS::usableIDType($Item->getId());            
+		$type =  $Item->getType();
+		$data = array();	
+		$data['quickbook_id'] = $qb_id;
+		$data['unit_price'] =  $Item->getUnitPrice();
+		$data['discontinued'] =  1;
+		$data['assigned_user_id'] =  vtws_getWebserviceEntityId("Users", 1); 
+		
+		$pq = 'SELECT * FROM `vtiger_products` where quickbook_id =  "'.$qb_id.'"';
+		$precords = $adb->query($pq);
+		$com_count_products = $adb->num_rows($precords);
+		
+		$sq = 'SELECT * FROM `vtiger_service` where quickbook_id =  "'.$qb_id.'"';
+		$srecords = $adb->query($sq);
+		$com_count_services = $adb->num_rows($srecords); 
+		
+		if($com_count_products == 0 && $com_count_services == 0) {
+			#insert	
+			if($type == 'Service'){		
+				$data['servicename'] = $Item->getName();
+				$ps = vtws_create('Services', $data, $current_user);
+				$qb_servies++;
+			}else{ 
+				$data['productname'] = $Item->getName();	
+				if($Item->getQtyOnHand()){ 
+					$data['qtyinstock'] =  $Item->getQtyOnHand();
+					$data['sales_start_date'] =  $Item->getInvStartDate();
+					$data['start_date'] =  $Item->getInvStartDate();                        
+				}
+				$ps = vtws_create('Products', $data, $current_user);
+				$qb_products++;
+			}                        
+		}else{
+			#update
+		}
+	} 	
+
+	if($qb_products >0)
+	{
+		$q = "INSERT INTO quickbooks_sync_history (module, type, records, date) VALUES (?, ?, ?, ?)";
+		$adb->pquery($q,array('Products','get',$qb_products,date('Y-m-d H:i:s')));
+	}
+		
+	if($qb_servies >0)
+	{
+		$q = "INSERT INTO quickbooks_sync_history (module, type, records, date) VALUES (?, ?, ?, ?)";
+		$adb->pquery($q,array('Services','get',$qb_servies,date('Y-m-d H:i:s')));
+	}
+
+
+
+

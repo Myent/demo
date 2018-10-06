@@ -1,0 +1,18 @@
+{
+  "env": {
+    "browser": true,
+    "node": true
+  },
+  "parserOptions": {
+    "ecmaVersion": 6,
+    "sourceType": "module"
+  },
+  "extends": "eslint:recommended",
+  "predef": "jQuery",
+  "rules": {
+    "semi": [1, "always"],
+    "no-console": 2,
+    "no-control-regex": 0,
+    "indent": [1, "tab"]
+  }
+}
